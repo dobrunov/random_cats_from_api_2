@@ -7,7 +7,11 @@ Version 1 - (2022-12-14)
 - save fact with date stamp in history list with Hive database
 - slideble delete fact
 
-
-
 https://user-images.githubusercontent.com/98588940/207578343-d35c14a4-d29d-42a6-a4f5-4ff3280849c7.mp4
 
+Version 2 - (2022-12-14)
+- simple fetch from api
+- with Provider
+- get random cat facts and random image, create date stamp
+- save fact with date stamp in history list with Hive database
+- slideble delete fact
