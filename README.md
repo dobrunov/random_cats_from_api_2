@@ -3,7 +3,7 @@
 Version 1 - (2022-12-14)
 - simple fetch from api
 - without state management
-- get cat facts and image, create date stamp
+- get random cat facts and random image, create date stamp
 - save fact with date stamp in history list with Hive database
 - slideble delete fact
 
