@@ -1,7 +1,7 @@
 name: cat_facts_from_api_with_hive
 description: cat_facts_from_api_with_hive
 
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: 'none'
 
 version: 1.0.0+1
 
