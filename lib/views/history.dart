@@ -13,7 +13,6 @@ class History extends StatefulWidget {
 }
 
 class _HistoryState extends State<History> {
-  // reference te hive box
   final _myBox = Hive.box('mybox');
   CatFactsDataBase db = CatFactsDataBase();
 
@@ -22,7 +21,6 @@ class _HistoryState extends State<History> {
     if (_myBox.get("CatFactsLIST") == null) {
       db.createInitialData();
     } else {
-      // there already exists data
       db.loadData();
     }
     super.initState();
