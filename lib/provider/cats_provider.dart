@@ -42,20 +42,4 @@ class CatsProvider extends ChangeNotifier {
     isLoading = false;
     notifyListeners();
   }
-  //
-
-  // List<Country> _countries = [];
-  // List<Country> get countries => _countries;
-  // String _searchString = "";
-  //
-  // // get data
-  // Future<void> getAllCountries() async {
-  //   isLoading = true;
-  //   notifyListeners();
-  //
-  //   final response = await _service.getAll();
-  //
-  //   _countries = response;
-  //   isLoading = false;
-  //   notifyListeners();
 }
