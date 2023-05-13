@@ -1,7 +1,7 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 
-import '../data/database.dart';
+import '../data/cat_facts_database.dart';
 import '../models/cat_facts_model.dart';
 import '../services/datetime_service.dart';
 import '../services/remote_service.dart';
@@ -65,4 +65,10 @@ class CatsProvider extends ChangeNotifier {
   }
 
   void updateDatabase() => _db.updateDatabase();
+
+  void deleteFact(int index) {
+    _db.catFactsList.removeAt(index);
+    _db.updateDatabase();
+    notifyListeners();
+  }
 }
