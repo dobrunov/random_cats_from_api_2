@@ -3,7 +3,7 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 import '../constants/constants.dart';
 import '../data/database.dart';
-import '../util/cat_fact_tile.dart';
+import '../widgets/cat_fact_tile.dart';
 
 class HistoryPage extends StatefulWidget {
   const HistoryPage({Key? key}) : super(key: key);
