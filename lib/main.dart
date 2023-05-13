@@ -8,7 +8,7 @@ import 'constants/constants.dart';
 
 void main() async {
   await Hive.initFlutter();
-  await Hive.openBox('mybox');
+  await Hive.openBox('myBox');
 
   runApp(const MyApp());
 }

@@ -13,7 +13,7 @@ class HistoryPage extends StatefulWidget {
 }
 
 class _HistoryPageState extends State<HistoryPage> {
-  final _myBox = Hive.box('mbox');
+  final _myBox = Hive.box('myBox');
   CatFactsDataBase db = CatFactsDataBase();
 
   @override
