@@ -6,36 +6,46 @@ import 'package:http/http.dart';
 
 import '../models/cat_facts_model.dart';
 
-class CatFactsService {
-  //
-  Future<CatFacts> getCatFacts() async {
-    final response = await get(Uri.parse(
-      'https://meowfacts.herokuapp.com/',
-    ));
-    if (response.statusCode == 200) {
-      final catFacts = catFactsFromJson(response.body);
-      print('get $catFacts');
-      return catFacts;
-    } else {
-      const CircularProgressIndicator(
-        backgroundColor: Colors.red,
-      );
+class RemoteService {
+  static const catsBaseUri = "https://cataas.com/";
+  static const factsBaseUrl = "https://meowfacts.herokuapp.com/";
+
+  final catsUrl = Uri.parse(catsBaseUri);
+  final factsUrl = Uri.parse(factsBaseUrl);
+
+  final catKey = "cat";
+
+  Future<CatFacts?> getCatFacts() async {
+    try {
+      final response = await get(factsUrl);
+      if (response.statusCode == 200) {
+        return catFactsFromJson(response.body);
+      } else {
+        const CircularProgressIndicator(
+          backgroundColor: Colors.red,
+        );
+      }
+    } catch (e) {
+      throw Exception('Oops: $e');
     }
-    throw Exception('Oops');
+    return null;
   }
 
   //
-  Future<Uint8List> getCatImage() async {
-    final ByteData imageData =
-        await NetworkAssetBundle(Uri.parse("https://cataas.com/cat")).load("");
-    if (imageData != null) {
-      final Uint8List rawImage = imageData.buffer.asUint8List();
-      return rawImage;
-    } else {
-      const CircularProgressIndicator(
-        backgroundColor: Colors.red,
-      );
+  Future<Uint8List?> getCatImage() async {
+    try {
+      final imageData = await NetworkAssetBundle(catsUrl).load(catKey);
+
+      if (imageData.lengthInBytes > 0) {
+        return imageData.buffer.asUint8List();
+      } else {
+        const CircularProgressIndicator(
+          backgroundColor: Colors.red,
+        );
+      }
+    } catch (e) {
+      print('Error while fetching image: $e');
     }
-    throw Exception('Oops');
+    return null;
   }
 }

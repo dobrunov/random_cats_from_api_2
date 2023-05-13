@@ -13,4 +13,9 @@ class CatFacts {
   factory CatFacts.fromJson(Map<String, dynamic> json) => CatFacts(
         data: List<String>.from(json["data"].map((x) => x)),
       );
+
+  @override
+  String toString() {
+    return data.toString();
+  }
 }

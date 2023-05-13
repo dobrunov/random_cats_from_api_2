@@ -1,5 +1,4 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 
 import '../data/database.dart';
@@ -9,37 +8,61 @@ import '../services/remote_service.dart';
 
 class CatsProvider extends ChangeNotifier {
   //
-  final _service = CatFactsService();
-  CatFactsDataBase db = CatFactsDataBase();
+  final _service = RemoteService();
+  final _db = CatFactsDataBase();
   //
-  late CatFacts _catFacts;
-  late Uint8List _catImage;
-  //
-  CatFacts get catFacts => _catFacts;
-  Uint8List get catImage => _catImage;
-  //
-  bool isLoading = false;
-  //
-  ///
-  Future<void> getData() async {
-    isLoading = true;
-    notifyListeners();
-    //
-    final catFactsResponse = await _service.getCatFacts();
-    final catImageResponse = await _service.getCatImage();
-    DateTime currentTimeRaw = DateTime.now();
-    String currentTime = DateTimeConvert.simplyFormat(currentTimeRaw);
+  late CatFacts catFacts = CatFacts(data: [""]);
+  Uint8List? catImage;
 
-    if (catFactsResponse != null || catImageResponse != null) {
-      db.catFactsList.add([catFactsResponse.data[0], false]);
-      print(currentTime.toString());
-      db.timeList.add([currentTime, false]);
+  bool isLoading = false;
+
+  Future<void> getData() async {
+    try {
+      setLoading(true);
+
+      final catImage = await _service.getCatImage();
+      final catFacts = await _service.getCatFacts();
+
+      final currentTime = DateTime.now();
+
+      if (catImage != null && catImage.isNotEmpty) {
+        addToDatabase(catFacts!.data[0], currentTime);
+        setCatFacts(catFacts);
+        setCatImage(catImage);
+      }
+    } catch (e) {
+      handleError(e);
+    } finally {
+      setLoading(false);
+      debugPrint('cat data loaded');
+      debugPrint(catFacts.data[0]);
     }
-    //
-    _catFacts = catFactsResponse;
-    _catImage = catImageResponse;
-    //
-    isLoading = false;
+  }
+
+  void addToDatabase(String fact, DateTime time) {
+    final formattedTime = DateTimeConvert.simplyFormat(time);
+    _db.catFactsList.add([fact, false]);
+    _db.timeList.add([formattedTime, false]);
+  }
+
+  void setLoading(bool loading) {
+    isLoading = loading;
     notifyListeners();
   }
+
+  void setCatFacts(dynamic catFacts) {
+    this.catFacts = catFacts;
+    notifyListeners();
+  }
+
+  void setCatImage(dynamic catImage) {
+    this.catImage = catImage;
+    notifyListeners();
+  }
+
+  void handleError(dynamic error) {
+    print('error');
+  }
+
+  void updateDatabase() => _db.updateDatabase();
 }

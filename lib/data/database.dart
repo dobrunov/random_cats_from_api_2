@@ -10,8 +10,8 @@ class CatFactsDataBase {
   // run tis method if this is the 1st time ever opening this app
   void createInitialData() {
     catFactsList = [
-      ["Make tutorial", false],
-      ["Do Exercise", false],
+      ["First fact", false],
+      ["Second fact", false],
     ];
     timeList = [
       ["0", false],
