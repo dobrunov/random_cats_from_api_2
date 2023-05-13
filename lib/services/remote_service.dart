@@ -1,17 +1,15 @@
 import 'dart:typed_data';
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart';
 
 import '../models/cat_facts_model.dart';
+import '../config.dart';
 
 class RemoteService {
-  static const catsBaseUri = "https://cataas.com/";
-  static const factsBaseUrl = "https://meowfacts.herokuapp.com/";
-
-  final catsUrl = Uri.parse(catsBaseUri);
-  final factsUrl = Uri.parse(factsBaseUrl);
+  //
+  final catsUrl = Uri.parse(Config.catsBaseUri);
+  final factsUrl = Uri.parse(Config.factsBaseUrl);
 
   final catKey = "cat";
 
@@ -44,7 +42,7 @@ class RemoteService {
         );
       }
     } catch (e) {
-      print('Error while fetching image: $e');
+      debugPrint('Error while fetching image: $e');
     }
     return null;
   }

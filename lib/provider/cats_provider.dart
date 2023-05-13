@@ -61,7 +61,7 @@ class CatsProvider extends ChangeNotifier {
   }
 
   void handleError(dynamic error) {
-    print('error');
+    debugPrint(error);
   }
 
   void updateDatabase() => _db.updateDatabase();

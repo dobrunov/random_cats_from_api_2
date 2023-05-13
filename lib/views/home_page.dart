@@ -22,8 +22,6 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    const sizedBoxHeight10 = SizedBox(height: 10);
-    const sizedBoxHeight25 = SizedBox(height: 25);
     return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(

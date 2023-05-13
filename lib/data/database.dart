@@ -5,7 +5,7 @@ class CatFactsDataBase {
   List timeList = [];
 
   // reference te box
-  final _myBox = Hive.box('mybox');
+  final _myBox = Hive.box('mbox');
 
   // run tis method if this is the 1st time ever opening this app
   void createInitialData() {
