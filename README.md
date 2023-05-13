@@ -5,7 +5,7 @@
 - without state management
 - get random cat facts and random image, create date stamp
 - save fact with date stamp in history list with Hive database
-- slideble delete fact
+- slidable delete fact
 
 https://user-images.githubusercontent.com/98588940/207578343-d35c14a4-d29d-42a6-a4f5-4ff3280849c7.mp4
 
@@ -14,4 +14,10 @@ https://user-images.githubusercontent.com/98588940/207578343-d35c14a4-d29d-42a6-
 - with Provider
 - get random cat facts and random image, create date stamp
 - save fact with date stamp in history list with Hive database
-- slideble delete fact
+- slidable delete fact
+
+# Version 3 - (2023-05-13)
+- fix some errors
+- work with styles
+- code improvements
+
