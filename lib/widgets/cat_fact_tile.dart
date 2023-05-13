@@ -18,7 +18,7 @@ class CatFactsTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(left: 25.0, right: 25, top: 25),
+      padding: paddingsLeftRightTop25,
       child: Slidable(
         endActionPane: ActionPane(
           motion: const StretchMotion(),
@@ -26,15 +26,15 @@ class CatFactsTile extends StatelessWidget {
             SlidableAction(
               onPressed: deleteFunction,
               icon: Icons.delete,
-              backgroundColor: Colors.pink,
+              backgroundColor: deleteFactColor,
               borderRadius: BorderRadius.circular(12),
             )
           ],
         ),
         child: Container(
-          padding: const EdgeInsets.all(24),
+          padding: paddingsAll24,
           decoration: BoxDecoration(
-            color: const Color(0xFFF5ABC4),
+            color: catFactsTileColor,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Column(
@@ -46,9 +46,7 @@ class CatFactsTile extends StatelessWidget {
                 maxLines: 5,
                 overflow: TextOverflow.ellipsis,
               ),
-              const SizedBox(
-                height: 10,
-              ),
+              sizedBoxHeight10,
               Text(
                 timeStamp,
                 style: timeStampTextStyle,

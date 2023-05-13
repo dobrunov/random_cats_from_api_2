@@ -17,6 +17,7 @@ class HistoryPage extends StatefulWidget {
 class _HistoryPageState extends State<HistoryPage> {
   final _myBox = Hive.box('myBox');
   CatFactsDataBase db = CatFactsDataBase();
+  late CatsProvider provider;
 
   @override
   void initState() {
@@ -29,14 +30,19 @@ class _HistoryPageState extends State<HistoryPage> {
   }
 
   @override
+  void didChangeDependencies() {
+    provider = Provider.of<CatsProvider>(context);
+    super.didChangeDependencies();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    var provider = Provider.of<CatsProvider>(context);
     return Scaffold(
       backgroundColor: bgColor,
       appBar: AppBar(
         title: const Text(
           'Cat Facts',
-          style: TextStyle(color: Colors.white),
+          style: TextStyle(color: buttonTextColor),
         ),
         elevation: 0,
       ),

@@ -22,12 +22,13 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    var size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: bgColor,
       body: SafeArea(
         child: Center(
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: paddingsAll8,
             child: SingleChildScrollView(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -46,25 +47,19 @@ class _HomePageState extends State<HomePage> {
                           value.catImage == null
                               ? const SizedBox()
                               : Container(
-                                  width: 280.0,
-                                  height: 280.0,
+                                  width: size.width * 0.8,
+                                  height: size.width * 0.8,
                                   alignment: Alignment.center,
                                   child: Image.memory(value.catImage!, fit: BoxFit.contain),
                                 ),
                           sizedBoxHeight25,
                           SizedBox(
-                            width: 280.0,
-                            height: 100,
+                            width: size.width * 0.8,
+                            height: size.width * 0.35,
                             child: SingleChildScrollView(
                               child: Text(
                                 value.catFacts.data[0],
-                                style: const TextStyle(
-                                  color: Color(0xFF464646),
-                                  fontWeight: FontWeight.w500,
-                                  fontFamily: 'Roboto',
-                                  letterSpacing: 0.4,
-                                  fontSize: 18,
-                                ),
+                                style: catFactTextStyle,
                               ),
                             ),
                           ),
