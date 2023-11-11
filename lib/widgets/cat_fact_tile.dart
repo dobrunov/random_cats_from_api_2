@@ -4,7 +4,7 @@ import 'package:flutter_slidable/flutter_slidable.dart';
 import '../constants/constants.dart';
 
 class CatFactsTile extends StatelessWidget {
-  CatFactsTile({
+  const CatFactsTile({
     Key? key,
     required this.catFactText,
     required this.timeStamp,
@@ -13,7 +13,7 @@ class CatFactsTile extends StatelessWidget {
 
   final String catFactText;
   final String timeStamp;
-  Function(BuildContext)? deleteFunction;
+  final Function(BuildContext)? deleteFunction;
 
   @override
   Widget build(BuildContext context) {

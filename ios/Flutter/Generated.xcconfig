@@ -1,6 +1,6 @@
 // This is a generated file; do not edit or check into version control.
 FLUTTER_ROOT=D:\000 GLOBAL DATA\flutter_sdk\flutter
-FLUTTER_APPLICATION_PATH=D:\101010\cat_facts_vanilla
+FLUTTER_APPLICATION_PATH=D:\000 GLOBAL DATA\repo\random_cats_from_api_2
 COCOAPODS_PARALLEL_CODE_SIGN=true
 FLUTTER_TARGET=lib\main.dart
 FLUTTER_BUILD_DIR=build
