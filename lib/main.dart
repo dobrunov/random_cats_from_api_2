@@ -21,6 +21,7 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => CatsProvider(),
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         color: bgColor,
         title: 'Cat Facts',
         theme: ThemeData(

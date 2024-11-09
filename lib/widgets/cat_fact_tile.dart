@@ -46,7 +46,7 @@ class CatFactsTile extends StatelessWidget {
                 maxLines: 5,
                 overflow: TextOverflow.ellipsis,
               ),
-              sizedBoxHeight10,
+              h10,
               Text(
                 timeStamp,
                 style: timeStampTextStyle,

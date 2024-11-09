@@ -39,8 +39,8 @@ const catFactTextStyle = TextStyle(
 );
 
 /// GAPS
-const sizedBoxHeight10 = SizedBox(height: 10);
-const sizedBoxHeight25 = SizedBox(height: 25);
+const h10 = SizedBox(height: 10);
+const h25 = SizedBox(height: 25);
 
 /// PADDINGS
 const paddingsAll8 = EdgeInsets.all(8.0);
